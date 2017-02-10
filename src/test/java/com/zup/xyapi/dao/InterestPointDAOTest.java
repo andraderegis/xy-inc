@@ -1,11 +1,13 @@
 package com.zup.xyapi.dao;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,12 +34,25 @@ public class InterestPointDAOTest {
 	private InterestPointDAO dao;
 
 	private InterestPoint interestPoint;
+	
+	@SuppressWarnings("unused")
+	private List<InterestPoint> interestPoints;
+	
+	@After
+	public void tearDown(){
+		interestPoint = null;
+		interestPoints = null;
+	}
 
 	@Test
 	public void shouldBeListSuccess() {
 
 		try {
-			assertNotNull(dao.list());
+			interestPoints = dao.list();
+			
+			assertNotNull(interestPoints);
+			assertEquals(7, interestPoints.size());
+		
 		} catch (Exception e) {
 			testException(e);
 		}
@@ -47,15 +62,17 @@ public class InterestPointDAOTest {
 	public void shouldBeListByProximitySuccess() {
 		
 		try {
-			List<InterestPoint> result = dao.listByProximity(20, 10, 10);
-			assertTrue(result.size() > 0);
+			interestPoints = dao.listByProximity(20, 10, 10);
+			
+			assertNotNull(interestPoints);
+			assertEquals(4, interestPoints.size());
+
 		} catch (Exception e) {
 			testException(e);
 		}
 	}
 
 	@Test
-	@Ignore
 	public void modelValidateErrorBeforeSave() {
 
 		try {
@@ -68,7 +85,6 @@ public class InterestPointDAOTest {
 	}
 
 	@Test
-	@Ignore
 	public void shouldBeSaveSuccess() {
 
 		try {
@@ -76,9 +92,10 @@ public class InterestPointDAOTest {
 
 			dao.save(interestPoint);
 
-			InterestPoint point = dao.findById(1);
+			InterestPoint retrivedInterestPoint = dao.findById(8);
 
-			assertNotNull(point);
+			assertNotNull(retrivedInterestPoint);
+			assertEquals(interestPoint.getName(), retrivedInterestPoint.getName());
 		} catch (Exception e) {
 			testException(e);
 		}
