@@ -54,5 +54,4 @@ public class InterestPointController extends BaseController<InterestPoint> {
 			return SuccessResponse(dao.listByProximity(lat, lng, distance));
 		};
 	}
-
 }
