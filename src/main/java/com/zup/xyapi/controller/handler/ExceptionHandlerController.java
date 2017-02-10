@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.zup.xyapi.response.ApiResponse;
 
 @ControllerAdvice
-public class ValidationHandlerController {
+public class ExceptionHandlerController {
 
 	@Autowired
 	private MessageSource messageSource;

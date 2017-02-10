@@ -11,12 +11,12 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.zup.xyapi.controller.handler.ValidationHandlerController;
+import com.zup.xyapi.controller.handler.ExceptionHandlerController;
 import com.zup.xyapi.controller.impl.InterestPointController;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses = { InterestPointController.class, ValidationHandlerController.class })
+@ComponentScan(basePackageClasses = { InterestPointController.class, ExceptionHandlerController.class })
 public class AppWebConfig extends WebMvcConfigurerAdapter {
 
 	@Override

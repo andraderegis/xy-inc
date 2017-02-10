@@ -23,6 +23,7 @@
 				<version>2.6</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -106,7 +107,7 @@
 			<artifactId>javassist</artifactId>
 			<version>${javassist.version}</version>
 		</dependency>
-		
+
 		<!-- Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
