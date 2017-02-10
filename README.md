@@ -93,7 +93,7 @@ Abaixo, segue exemplos de utilização:
 Nos ambientes <strong>test</strong> e <strong>development</strong>, o Hibernate está configurado para automaticamente limpar e popular
 o banco de dados com os dados das POIs informadas na descrição do <strong>Teste Desenvolvedor 2</strong>
 
-### Serviços RESTful
+## Serviços RESTful
 
 * Salvar POI
 ```
@@ -191,6 +191,23 @@ Response:
   ]
 }
 ```
+
+### Tratamento de erros
+Todos os erros da API são retornados no formato json, com a seguinte estrutura:</br>
+
+```
+code: Código do erro
+status: Status do erro
+message: Mensagem do erro
+ 
+{
+  "code": 415,
+  "message": "Content type 'text/plain;charset=UTF-8' not supported",
+  "status": "Unsupported Media Type",
+  "data": null
+}
+```
+
 
 ## Built With
 
