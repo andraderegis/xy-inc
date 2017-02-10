@@ -90,21 +90,46 @@ Abaixo, segue exemplos de utilização:
 @ActiveProfile('production') - Ambiente de Produção
 ```
 
+Nos ambientes <strong>test</strong> e <strong>development</strong>, o Hibernate está configurado para automaticamente limpar e popular
+o banco de dados com os dados das POIs informadas na descrição do <strong>Teste Desenvolvedor 2</strong>
 
-### Break down into end to end tests
+### Serviços RESTful
 
-Explain what these tests test and why
+* Salvar POI
+```
+Método: POST
+```
+```
+Content-Type: application/json
+```
+```
+Path: api/points
+```
 
 ```
-Give an example
+Body:
+
+{
+  "name": "Supermercado",
+  "coordinateX": 10,
+  "coordinateY": 30
+}
+
+name: String(Obrigatório, em até 50 caracters)
+coordinateX: Int(Obrigatório, positivo entre 1 a 10000)
+coordinateX: Int(Obrigatório, positivo entre 1 a 10000)
+
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
 ```
-Give an example
+Response:
+{
+  "code": 200,
+  "message": null,
+  "status": "OK",
+  "data": null
+}
+
 ```
 
 ## Deployment
