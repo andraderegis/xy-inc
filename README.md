@@ -132,9 +132,65 @@ Response:
 
 ```
 
-## Deployment
+* Listar POIs
+```
+Método: GET
+```
+```
+Content-Type: application/json
+```
+```
+Path: api/points
+```
 
-Add additional notes about how to deploy this on a live system
+```
+Response:
+{
+  "code": 200,
+  "message": null,
+  "status": "OK",
+  "data": [
+    {
+      "id": 1,
+      "name": "Lanchonete",
+      "coordinateX": 27,
+      "coordinateY": 12
+    },
+  ]
+}
+```
+
+* Listar POIs por Proximidade
+```
+Método: GET
+```
+```
+Content-Type: application/json
+```
+```
+Path: api/points?lat=latitude&lng=longitue&distance=distancia_em_metros
+
+lat: Int(Obrigatório e positivo)
+lng: Int(Obrigatório e postivo)
+distance: Int(Obrigatório e positivo)
+```
+
+```
+Response:
+{
+  "code": 200,
+  "message": null,
+  "status": "OK",
+  "data": [
+    {
+      "id": 1,
+      "name": "Lanchonete",
+      "coordinateX": 27,
+      "coordinateY": 12
+    },
+  ]
+}
+```
 
 ## Built With
 
